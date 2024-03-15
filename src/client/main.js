@@ -15,7 +15,7 @@ const scene = new THREE.Scene();
 const geometry = new THREE.BoxGeometry(1.5,1.5,3)
 
 // To create the material, we use the MeshBasicMaterial class with one parameter: an object {} containing all the options.
-const material = new THREE.MeshBasicMaterial({color:`green`})//transparent:true,opacity:.5
+const material = new THREE.MeshBasicMaterial({color:`blue`})//transparent:true,opacity:.5
 
 // To create the final mesh, we use the Mesh class and send the geometry and the material as parameters.
 const mesh = new THREE.Mesh(geometry,material)
@@ -49,16 +49,18 @@ const renderer = new THREE.WebGLRenderer({
     canvas:canvas
 })
 renderer.setSize(aRatio.width,aRatio.height)
-    
+// set background for canvas with .setClearColor( color, alpha)
+renderer.setClearColor( `silver`, .75);
 
+    
 // render animation
 const renderAnimation = () => {
     requestAnimationFrame( renderAnimation )
     // animation transform
-    
+
 let c = .0025 // starting speed
     for(let i = 0; i <= 5; i++){
-       
+        
         setTimeout(()=>{
             // set rotation to x & y axis
             // rotation += c (starting speed)
@@ -66,7 +68,6 @@ let c = .0025 // starting speed
             mesh.rotation.y+=((c+=.0005)%.1)
         },2000*(i+1))
     }
-
     // 4 render
     renderer.render( scene,camera )
 }

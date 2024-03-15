@@ -10,7 +10,3 @@ body{
     justify-content: center;
     height: 100vh;
 }
-canvas{
-    height:900px;
-    width:900px;
-}
