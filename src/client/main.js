@@ -31,15 +31,16 @@ const addOpacity = () => {
 scene.add(mesh)
 // 2)
 // field of view (fov)(degree) & height and width aspect ratios
+const body = document.querySelector('body')
 const aRatio = {
-    height:550,
-    width:750
+    height:body.clientHeight,
+    width:body.clientWidth
 }
 const fov = 75
 const camera = new THREE.PerspectiveCamera(fov,aRatio.width/aRatio.height)
 camera.position.z = 3
 
-
+ 
 scene.add(camera)
 
 // 3 
